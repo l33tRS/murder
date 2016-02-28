@@ -99,6 +99,29 @@ local function addModel(model, sex)
 	table.insert(playerModels, t)
 end
 
+-- addModel("male03", "male")
+-- addModel("male04", "male")
+-- addModel("male05", "male")
+-- addModel("male07", "male")
+-- addModel("male06", "male")
+-- addModel("male09", "male")
+-- addModel("male01", "male")
+-- addModel("male02", "male")
+-- addModel("male08", "male")
+-- addModel("female06", "female")
+-- addModel("female01", "female")
+-- addModel("female03", "female")
+-- addModel("female05", "female")
+-- addModel("female02", "female")
+-- addModel("female04", "female")
+-- addModel("refugee01", "male")
+-- addModel("refugee02", "male")
+-- addModel("refugee03", "male")
+-- addModel("refugee04", "male")
+
+-- Custom skins
+-- from http://steamcommunity.com/sharedfiles/filedetails/?id=323736868
+
 addModel("Male01", "male")
 addModel("Male03", "male")
 addModel("Male04", "male")
