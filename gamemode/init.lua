@@ -1,4 +1,4 @@
-// add cs lua all the cl_ or sh_ files
+-- add cs lua all the cl_ or sh_ files
 local folders = {
 	(GM or GAMEMODE).Folder:sub(11) .. "/gamemode/"
 }
@@ -48,7 +48,7 @@ GM.RoundLimit = CreateConVar("mu_roundlimit", 0, bit.bor(FCVAR_NOTIFY), "Number 
 GM.FlashlightBattery = CreateConVar("mu_flashlight_battery", 10, bit.bor(FCVAR_NOTIFY), "How long the flashlight should last in seconds (0 for infinite)" )
 GM.Language = CreateConVar("mu_language", "", bit.bor(FCVAR_NOTIFY), "The language Murder should use" )
 
-// replicated
+-- replicated
 GM.ShowAdminsOnScoreboard = CreateConVar("mu_scoreboard_show_admins", 1, bit.bor(0), "Should show admins on scoreboard" )
 GM.AdminPanelAllowed = CreateConVar("mu_allow_admin_panel", 1, bit.bor(FCVAR_NOTIFY), "Should allow admins to use mu_admin_panel" )
 GM.ShowSpectateInfo = CreateConVar("mu_show_spectate_info", 1, bit.bor(FCVAR_NOTIFY), "Should show players name and color to spectators" )
@@ -132,7 +132,7 @@ function GM:SendMessageAll(msg)
 end
 
 function GM:EntityTakeDamage( ent, dmginfo )
-	// disable all prop damage
+	-- disable all prop damage
 	if IsValid(dmginfo:GetAttacker()) && (dmginfo:GetAttacker():GetClass() == "prop_physics" || dmginfo:GetAttacker():GetClass() == "prop_physics_multiplayer") then
 		return true
 	end
@@ -152,7 +152,7 @@ function file.ReadDataAndContent(path)
 end
 
 util.AddNetworkString("reopen_round_board")
-function GM:ShowTeam(ply) // F2
+function GM:ShowTeam(ply) -- F2
 	net.Start("reopen_round_board")
 	net.Send(ply)
 end

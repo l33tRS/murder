@@ -45,7 +45,7 @@ function GM:MurdererThink()
 		end
 	end
 
-	// regenerate knife if on ground
+	-- regenerate knife if on ground
 	if IsValid(murderer) && murderer:Alive() then
 		if murderer:HasWeapon("weapon_mu_knife") then
 			murderer.LastHadKnife = CurTime()

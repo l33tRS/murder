@@ -110,7 +110,7 @@ pt.pressEToDisguiseFor1Loot = "[E] Замаскироваться за 1 ули�
 
 pt.playerStatusDead = "Мертв"
 
-// ttt_traitor_button compatibility for TTT maps
+-- ttt_traitor_button compatibility for TTT maps
 pt.ttt_tbut_single  = "Одноразово"
 pt.ttt_tbut_reuse   = "Многоразово"
 pt.ttt_tbut_retime  = "Многоразовое: через {num} сек"

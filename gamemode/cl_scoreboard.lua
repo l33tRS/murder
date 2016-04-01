@@ -158,7 +158,7 @@ local function doPlayerItems(self, mlist, pteam)
 			del = true
 		end
 	end
-	// make sure the rest of the elements are moved up
+	-- make sure the rest of the elements are moved up
 	if del then
 		timer.Simple(0, function() mlist:GetCanvas():InvalidateLayout() end)
 	end
@@ -223,7 +223,7 @@ local function makeTeamList(parent, pteam)
 	mlist = vgui.Create("DScrollPanel", pnl)
 	mlist:Dock(FILL)
 
-	// child positioning
+	-- child positioning
 	local canvas = mlist:GetCanvas()
 	function canvas:OnChildAdded( child )
 		child:Dock( TOP )

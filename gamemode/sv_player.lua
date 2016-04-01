@@ -188,7 +188,7 @@ function plyMeta:CalculateSpeed()
 		end
 	end
 
-	// set out new speeds
+	-- set out new speeds
 	if canrun then
 		self:SetRunSpeed(run)
 	else

@@ -82,9 +82,9 @@ function GM:HUDPaint()
 					self:DrawGameHUD(LocalPlayer())
 				end
 			elseif round == 2 then
-				// display who won
+				-- display who won
 				self:DrawGameHUD(LocalPlayer())
-			else // round = 0
+			else -- round = 0
 
 			end
 
@@ -113,10 +113,10 @@ function GM:HUDPaint()
 	
 		local time = math.floor(math.max(TimeLeft / 60, 0))..":"..time2
 	
-	// 0 not enough players
-	// 1 playing
-	// 2 round ended, about to restart
-	// 4 waiting for map switch
+	-- 0 not enough players
+	-- 1 playing
+	-- 2 round ended, about to restart
+	-- 4 waiting for map switch
 	if(self.RoundStage == 1)then
 		draw.SimpleTextOutlined(time, "RoundTimerFont", ScrW()/2, 30, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, color_black)
 	end
@@ -197,7 +197,7 @@ function GM:DrawGameHUD(ply)
 	local shouldDraw = hook.Run("HUDShouldDraw", "MurderTraitorButton")
 	if shouldDraw != false then
 		if self:GetAmMurderer() then
-			// find closest button to cursor with usable range
+			-- find closest button to cursor with usable range
 			local dis, dot, but
 			for k, lbut in pairs(ents.FindByClass("ttt_traitor_button")) do
 				local vec = lbut:GetPos() - ply:GetShootPos()
@@ -209,7 +209,7 @@ function GM:DrawGameHUD(ply)
 				end
 			end
 			
-			// draw the friggen button with excessive text
+			-- draw the friggen button with excessive text
 			if but then
 				local sp = but:GetPos():ToScreen()
 				if sp.visible then
@@ -242,7 +242,7 @@ function GM:DrawGameHUD(ply)
 
 	local shouldDraw = hook.Run("HUDShouldDraw", "MurderPlayerNames")
 	if shouldDraw != false then
-		// draw names
+		-- draw names
 		if IsValid(tr.Entity) && (tr.Entity:IsPlayer() || tr.Entity:GetClass() == "prop_ragdoll") && tr.HitPos:Distance(tr.StartPos) < 500 then
 			self.LastLooked = tr.Entity
 			self.LookedFade = CurTime()
@@ -270,15 +270,15 @@ function GM:DrawGameHUD(ply)
 	
 	local shouldDraw = hook.Run("HUDShouldDraw", "MurderHealthBall")
 	if shouldDraw != false then
-		// setup size
+		-- setup size
 		local size = ScrW() * 0.08
 
-		// draw black circle
+		-- draw black circle
 		surface.SetTexture(tex)
 		surface.SetDrawColor(color_black)
 		surface.DrawTexturedRect( size * 0.1, ScrH() - size * 1.1, size, size)
 
-		// draw health circle
+		-- draw health circle
 		surface.SetTexture(tex)
 		local col = ply:GetPlayerColor()
 		col = Color(col.x * 255, col.y * 255, col.z * 255)
@@ -379,12 +379,12 @@ function GM:PostDrawHUD()
 end
 
 function GM:HUDShouldDraw( name )
-	// hide health and armor
+	-- hide health and armor
 	if name == "CHudHealth" || name == "CHudBattery" then
 		return false
 	end
 
-	// allow weapon hiding
+	-- allow weapon hiding
 	local ply = LocalPlayer()
 	if IsValid(ply) then
 		local wep = ply:GetActiveWeapon()

@@ -15,7 +15,7 @@ end
 
 function GM:SaveSpawns()
 
-	// ensure the folders are there
+	-- ensure the folders are there
 	if !file.Exists("murder/","DATA") then
 		file.CreateDir("murder")
 	end
@@ -29,7 +29,7 @@ function GM:SaveSpawns()
 		file.CreateDir("murder/" .. mapName .. "/spawns")
 	end
 
-	// JSON!
+	-- JSON!
 	for listName, spawnList in pairs(TeamSpawns) do
 		local jason = util.TableToJSON(spawnList)
 		file.Write("murder/" .. mapName .. "/spawns/" .. listName .. ".txt", jason)

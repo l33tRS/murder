@@ -54,10 +54,10 @@ function GM:NetworkRound(ply)
 	end
 end
 
-// 0 not enough players
-// 1 playing
-// 2 round ended, about to restart
-// 4 waiting for map switch
+-- 0 not enough players
+-- 1 playing
+-- 2 round ended, about to restart
+-- 4 waiting for map switch
 function GM:RoundThink()
 	local players = team.GetPlayers(2)
 	if self.RoundStage == 0 then
@@ -77,7 +77,7 @@ function GM:RoundThink()
 				end
 			end
 		end
-		// after x minutes without a kill reveal the murderer
+		-- after x minutes without a kill reveal the murderer
 		local time = self.MurdererFogTime:GetFloat()
 		time = math.max(0, time)
 
@@ -119,31 +119,31 @@ function GM:RoundCheckForWin()
 		end
 	end
 
-	// check we have a murderer
+	-- check we have a murderer
 	if !IsValid(murderer) then
 		self:EndTheRound(3, murderer)
 		return
 	end
 
-	// has the murderer killed everyone?
+	-- has the murderer killed everyone?
 	if #survivors < 1 then
 		self:EndTheRound(1, murderer)
 		return
 	end
 
-	// is the murderer dead?
+	-- is the murderer dead?
 	if !murderer:Alive() then
 		self:EndTheRound(2, murderer)
 		return
 	end
 
-	// round time ended
+	-- round time ended
 	if self.RoundStartTime + self.RoundRoundTime < CurTime() then
 		self:EndTheRound(2, murderer)
 		return
 	end
 	
-	// keep playing.
+	-- keep playing.
 end
 
 
@@ -154,9 +154,9 @@ function GM:DoRoundDeaths(dead, attacker)
 	end
 end
 
-// 1 Murderer wins
-// 2 Murderer loses
-// 3 Murderer rage quit
+-- 1 Murderer wins
+-- 2 Murderer loses
+-- 3 Murderer rage quit
 function GM:EndTheRound(reason, murderer)
 	if self.RoundStage != 1 then return end
 
@@ -296,10 +296,10 @@ function GM:StartNewRound()
 	
 	local murderer
 
-	// get the weight multiplier
+	-- get the weight multiplier
 	local weightMul = self.MurdererWeight:GetFloat()
 
-	// pick a random murderer, weighted
+	-- pick a random murderer, weighted
 	local rand = WeightedRandom()
 	for k, ply in pairs(players) do
 		rand:Add(ply.MurdererChance ^ weightMul, ply)
@@ -307,7 +307,7 @@ function GM:StartNewRound()
 	end
 	murderer = rand:Roll()
 
-	// allow admins to specify next murderer
+	-- allow admins to specify next murderer
 	if self.ForceNextMurderer && IsValid(self.ForceNextMurderer) && self.ForceNextMurderer:Team() == 2 then
 		murderer = self.ForceNextMurderer
 		self.ForceNextMurderer = nil
@@ -389,7 +389,7 @@ end)
 function GM:ChangeMap()
 	if #self.MapList > 0 then
 		if MapVote then
-			// only match maps that we have specified
+			-- only match maps that we have specified
 			local prefix = {}
 			for k, map in pairs(self.MapList) do
 				table.insert(prefix, map .. "%.bsp$")
@@ -443,7 +443,7 @@ local defaultMapList = {
 
 function GM:SaveMapList()
 
-	// ensure the folders are there
+	-- ensure the folders are there
 	if !file.Exists("murder/","DATA") then
 		file.CreateDir("murder")
 	end

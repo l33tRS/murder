@@ -19,9 +19,9 @@ include("cl_flashlight.lua")
 include("cl_halos.lua")
 
 GM.Debug = CreateClientConVar( "mu_debug", 0, true, true )
-GM.HaloRender = CreateClientConVar( "mu_halo_render", 1, true, true ) // should we render halos
-GM.HaloRenderLoot = CreateClientConVar( "mu_halo_loot", 1, true, true ) // shouuld we render loot halos
-GM.HaloRenderKnife = CreateClientConVar( "mu_halo_knife", 1, true, true ) // shouuld we render murderer's knife halos
+GM.HaloRender = CreateClientConVar( "mu_halo_render", 1, true, true ) -- should we render halos
+GM.HaloRenderLoot = CreateClientConVar( "mu_halo_loot", 1, true, true ) -- should we render loot halos
+GM.HaloRenderKnife = CreateClientConVar( "mu_halo_knife", 1, true, true ) -- should we render murderer's knife halos
 
 function GM:Initialize() 
 	self:FootStepsInit()
@@ -59,7 +59,7 @@ function GM:Think()
 				particle:SetRoll( 0 )
 				particle:SetRollDelta( 0 )
 				particle:SetColor( 0, 0, 0 )
-				//particle:SetGravity( Vector( 0, 0, 10 ) )
+				-- particle:SetGravity( Vector( 0, 0, 10 ) )
 			end
 		else
 			if ply.FogEmitter then
@@ -70,7 +70,7 @@ function GM:Think()
 		end
 	end
 
-	// clean up old fog emitters
+	-- clean up old fog emitters
 	for ply, emitter in pairs(self.FogEmitters) do
 		if !IsValid(ply) || !ply:IsPlayer() then
 			emitter:Finish()

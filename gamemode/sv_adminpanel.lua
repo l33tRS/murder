@@ -16,7 +16,7 @@ net.Receive("mu_adminpanel_details", function (length, ply)
 
 	for k, ply in pairs(team.GetPlayers(2)) do
 		local t = {}
-		t.player = ply:EntIndex() // can't send players via JSON
+		t.player = ply:EntIndex() -- can't send players via JSON
 		t.murderer = ply:GetMurderer()
 		t.murdererChance = ((ply.MurdererChance or 1) ^ tab.weightMul) / total
 		t.murdererWeight = ply.MurdererChance or 1

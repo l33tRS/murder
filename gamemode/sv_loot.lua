@@ -102,7 +102,7 @@ end
 
 function GM:SaveLootData()
 
-	// ensure the folders are there
+	-- ensure the folders are there
 	if !file.Exists("murder/","DATA") then
 		file.CreateDir("murder")
 	end
@@ -112,7 +112,7 @@ function GM:SaveLootData()
 		file.CreateDir("murder/" .. mapName)
 	end
 
-	// JSON!
+	-- JSON!
 	local jason = util.TableToJSON(LootItems)
 	file.Write("murder/" .. mapName .. "/loot.txt", jason)
 end
@@ -127,13 +127,13 @@ function GM:AddLootItem(ent)
 end
 
 local function giveMagnum(ply)
-	// if they already have the gun, drop the first and give them a new one
+	-- if they already have the gun, drop the first and give them a new one
 	if ply:HasWeapon("weapon_mu_magnum") then
 		ply:DropWeapon(ply:GetWeapon("weapon_mu_magnum"))
 	end
 	if ply:GetTKer() then
-		// if they are penalised, drop the gun on the floor
-		ply.TempGiveMagnum = true // temporarily allow them to pickup the gun
+		-- if they are penalised, drop the gun on the floor
+		ply.TempGiveMagnum = true -- temporarily allow them to pickup the gun
 		ply:Give("weapon_mu_magnum")
 		ply:DropWeapon(ply:GetWeapon("weapon_mu_magnum"))
 	else

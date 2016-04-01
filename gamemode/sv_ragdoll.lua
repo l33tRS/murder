@@ -33,12 +33,12 @@ end
 function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 	local ent = self:GetNWEntity("DeathRagdoll")
 
-	// remove old player ragdolls
+	-- remove old player ragdolls
 	if !self.DeathRagdolls then self.DeathRagdolls = {} end
 	local max = hook.Run("MaxDeathRagdollsPerPlayer", self)
 	clearupRagdolls(self.DeathRagdolls, max or 1)
 
-	// remove old server ragdolls
+	-- remove old server ragdolls
 	if !GAMEMODE.DeathRagdolls then GAMEMODE.DeathRagdolls = {} end
 	local max = hook.Run("MaxDeathRagdolls")
 	clearupRagdolls(GAMEMODE.DeathRagdolls, max or 1)
@@ -49,7 +49,7 @@ function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 	end
 
 	local ent = ents.Create( "prop_ragdoll" )
-	data.ModelScale = 1 // doesn't work on ragdolls
+	data.ModelScale = 1 -- doesn't work on ragdolls
 	duplicator.DoGeneric(ent, data)
 	
 	self:SetNWEntity("DeathRagdoll", ent )

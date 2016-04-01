@@ -1,4 +1,4 @@
-// translate
+-- translate
 
 Translator = {}
 Translator.languages = {}
@@ -128,9 +128,9 @@ function Translator:Translate(languageTable, names)
 end
 
 
-// translation convience funcitons
+-- translation convience funcitons
 
-// replaces a phrases {variables} with replacements in reptable
+-- replaces a phrases {variables} with replacements in reptable
 function Translator:VarTranslate(s, reptable)
 	for k, v in pairs(reptable) do
 		s = s:gsub("{" .. k .. "}", v)
@@ -143,8 +143,8 @@ function Translator:QuickVar(s, k, v)
 	return s
 end
 
-// replaces {variables} with replacements but outputed in a table to allow additional formatting like colors
-// used for ChatText(msgs)
+-- replaces {variables} with replacements but outputed in a table to allow additional formatting like colors
+-- used for ChatText(msgs)
 function Translator:AdvVarTranslate(phrase, replacements)
 	local out = {}
 	local s = phrase
@@ -177,7 +177,7 @@ function Translator:AdvVarTranslate(phrase, replacements)
 	return out
 end
 
-// the actual translator
+-- the actual translator
 local tmeta = {}
 local function get(args)
 	local a = Translator:Translate(Translator:GetLanguageTable(), args)
@@ -185,7 +185,7 @@ local function get(args)
 		return a
 	end
 
-	// default to english if we don't have the translation
+	-- default to english if we don't have the translation
 	local a = Translator:Translate(Translator:GetEnglishTable(), args)
 	if a != nil then
 		return a

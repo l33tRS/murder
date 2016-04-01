@@ -5,7 +5,7 @@ matproxy.Add(
 
 	init	=	function( self, mat, values )
 
-		// Store the name of the variable we want to set
+		-- Store the name of the variable we want to set
 		self.ResultTo = values.resultvar
 
 	end,
@@ -14,7 +14,7 @@ matproxy.Add(
 
 		if ( !IsValid( ent ) ) then return end
 
-		// retarded garry shit
+		-- retarded garry shit
 
 		if ( ent.GetPlayerColor ) then
 			local col = ent:GetPlayerColor()

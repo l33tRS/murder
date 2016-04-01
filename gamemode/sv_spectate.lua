@@ -97,7 +97,7 @@ function GM:ChooseSpectatee(ply)
 		end
 	end
 
-	// if invalid or dead
+	-- if invalid or dead
 	if !IsValid(ply:GetCSpectatee()) || ( ply:GetCSpectatee():IsPlayer() && !ply:GetCSpectatee():Alive() ) then
 		self:SpectateNext(ply)
 	end
