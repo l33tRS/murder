@@ -1,12 +1,3 @@
--- Proxy Example:
---
---	Proxies
---	{
---		PlayerColor
---		{
---			resultVar	$color2
---		}
---	}
 
 matproxy.Add( 
 {
@@ -24,10 +15,6 @@ matproxy.Add(
 		if ( !IsValid( ent ) ) then return end
 
 		// retarded garry shit
-		-- if ( ent:IsRagdoll() ) then
-		-- 	ent = ent:GetRagdollOwner()
-		-- 	if ( !IsValid( ent ) ) then return end
-		-- end
 
 		if ( ent.GetPlayerColor ) then
 			local col = ent:GetPlayerColor()

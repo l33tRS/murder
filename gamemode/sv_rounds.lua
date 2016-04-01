@@ -175,8 +175,6 @@ function GM:EndTheRound(reason, murderer)
 			})
 			local ct = ChatText(msgs)
 			ct:SendAll()
-			-- ct:Add(", it was ")
-			-- ct:Add(murderer:Nick() .. ", " .. murderer:GetBystanderName(), Color(col.x * 255, col.y * 255, col.z * 255))
 		else
 			local ct = ChatText()
 			ct:Add(translate.murdererDisconnect)

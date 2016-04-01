@@ -65,11 +65,6 @@ function ChatText(msgs)
 	return t
 end
 
--- local t = ChatText()
--- t:Add("pants down", Color(255,0,0))
--- t:Add(" pants up")
--- t:SendAll()
-
 util.AddNetworkString("msg_clients")
 
 local meta = table.Copy(meta)

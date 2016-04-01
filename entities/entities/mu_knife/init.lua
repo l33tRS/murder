@@ -8,14 +8,11 @@ function ENT:Initialize()
 	self:SetModel("models/weapons/w_knife_t.mdl")
 
 	self:PhysicsInit( SOLID_VPHYSICS )
-	-- self:PhysicsInitSphere(50)
 	self:SetMoveType( MOVETYPE_VPHYSICS )
 	self:SetSolid( SOLID_VPHYSICS )
 	self:DrawShadow(false)
 
 	// don't do impact damage
-	-- self:SetTrigger(true)
-	-- self:SetCollisionGroup(COLLISION_GROUP_WEAPON)
 
 	local phys = self:GetPhysicsObject()
 	if IsValid(phys) then
@@ -60,16 +57,12 @@ local function addangle(ang,ang2)
 end
 
 function ENT:PhysicsCollide( data, physobj )
-	-- print(data.OurOldVelocity:Length())
 
 	if self.HitSomething then return end
 	if self.RemoveNext then return end
 	
 	local ply = data.HitEntity
 	if IsValid(ply) && ply:IsPlayer() then
-
-		-- self.RemoveNext = true
-		-- self:SetColor(Color(0,0,0,0))
 
 		local dmg = DamageInfo()
 		dmg:SetDamage(120)
@@ -90,23 +83,6 @@ function ENT:PhysicsCollide( data, physobj )
 				vec:Rotate(ang)
 				pos = pos + vec
 				addangle(ang, Angle(30, -90, 0))
-
-				-- local knife = ents.Create("prop_physics")
-				-- knife:SetModel("models/weapons/w_knife_t.mdl")
-				-- knife:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
-				-- knife:SetPos(pos)
-				-- knife:SetAngles(ang)
-				-- knife:Spawn()
-
-				-- local phys = knife:GetPhysicsObject()
-				-- if IsValid(phys) then
-				-- 	phys:EnableCollisions(false)
-				-- end
-
-
-				-- constraint.Weld(rag, knife, 0, 0, 0, true)
-
-				-- rag:CallOnRemove("knife_cleanup", function() SafeRemoveEntity(knife) end)
 
 			end
 

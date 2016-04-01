@@ -191,13 +191,7 @@ function GM:DrawGameHUD(ply)
 			drawTextShadow(translate.murdererFogSub, "MersRadial", ScrW() * 0.5, ScrH() / 1.03, Color(130,130,130), 1, TEXT_ALIGN_CENTER)
 		end
 	end
-
-	-- surface.SetFont("MersRadial")
-	-- local w,h = surface.GetTextSize("Health")
-
-	-- drawTextShadow("Health", "MersRadial", 20, ScrH() - 10, healthCol, 0, TEXT_ALIGN_TOP)
-	-- drawTextShadow(health, "MersRadialBig", 20 + w + 10, ScrH() - 10 + 3, healthCol, 0, TEXT_ALIGN_TOP)
-
+	
 	local tr = ply:GetEyeTraceNoCursor()
 	
 	local shouldDraw = hook.Run("HUDShouldDraw", "MurderTraitorButton")
@@ -370,7 +364,6 @@ function GM:PostDrawHUD()
 	if self:GetRound() == 1 then
 		local dest = 0
 		if self.TKerPenalty then
-			-- dest = (math.sin(CurTime()) + 1) * 30 / 2 + 230
 			dest = 254
 		end
 		self.ScreenDarkness = math.Clamp(math.Approach(self.ScreenDarkness or 0, dest, FrameTime() * 120), 0, 255)

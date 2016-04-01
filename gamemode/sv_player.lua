@@ -101,39 +101,19 @@ local function addModel(model, sex)
 	table.insert(playerModels, t)
 end
 
-addModel("male03", "male")
-addModel("male04", "male")
-addModel("male05", "male")
-addModel("male07", "male")
-addModel("male06", "male")
-addModel("male09", "male")
-addModel("male01", "male")
-addModel("male02", "male")
-addModel("male08", "male")
-addModel("female06", "female")
-addModel("female01", "female")
-addModel("female03", "female")
-addModel("female05", "female")
-addModel("female02", "female")
-addModel("female04", "female")
-addModel("refugee01", "male")
-addModel("refugee02", "male")
-addModel("refugee03", "male")
-addModel("refugee04", "male")
-
 -- Custom skins
 -- from http://steamcommunity.com/sharedfiles/filedetails/?id=323736868
--- addModel("Male01", "male")
--- addModel("Male03", "male")
--- addModel("Male04", "male")
--- addModel("Male05", "male")
--- addModel("Male06", "male")
--- addModel("Male07", "male")
--- addModel("Male08", "male")
--- addModel("Male09", "male")
--- addModel("Female01", "female")
--- addModel("Female02", "female")
--- addModel("Female07", "female")
+addModel("Male01", "male")
+addModel("Male03", "male")
+addModel("Male04", "male")
+addModel("Male05", "male")
+addModel("Male06", "male")
+addModel("Male07", "male")
+addModel("Male08", "male")
+addModel("Male09", "male")
+addModel("Female01", "female")
+addModel("Female02", "female")
+addModel("Female07", "female")
 
 function GM:PlayerSetModel( ply )
 
@@ -207,19 +187,6 @@ function plyMeta:CalculateSpeed()
 			jumppower = jumppower * 0.3
 		end
 	end
-
-	-- handcuffs
-	
-	-- if self:GetHandcuffed() then
-	-- 	walk = walk * 0.3
-	-- 	jumppower = 150
-	-- 	canrun = false
-	-- end
-	-- if self:GetTasered() then
-	-- 	walk = 40
-	-- 	jumppower = 100
-	-- 	canrun = false
-	-- end
 
 	// set out new speeds
 	if canrun then
@@ -344,12 +311,7 @@ function GM:PlayerDeath(ply, Inflictor, attacker )
 end
 
 function GM:PlayerDeathThink(ply)
-	if self:CanRespawn(ply) then
-		ply:Spawn()
-	else
 		self:ChooseSpectatee(ply)
-	end
-	
 end
 
 -- Added realistic fall damage
@@ -548,7 +510,6 @@ concommand.Add("mu_movetospectate", function (ply, com, args)
 end)
 
 concommand.Add("mu_spectate", function (ply, com, args)
-	if !ply:IsAdmin() then return end
 	if #args < 1 then return end
 
 	local ent = Entity(tonumber(args[1]) or -1)

@@ -22,7 +22,6 @@ include("sv_player.lua")
 include("sv_spectate.lua")
 include("sv_spawns.lua")
 include("sv_ragdoll.lua")
-include("sv_respawn.lua")
 include("sv_murderer.lua")
 include("sv_rounds.lua")
 include("sv_footsteps.lua")
@@ -87,7 +86,6 @@ function GM:InitPostEntityAndMapCleanup()
 	for k, ent in pairs(ents.FindByClass("mu_loot")) do
 		ent:Remove()
 	end
-	-- self:SpawnLoot()
 end
 
 function GM:Think()

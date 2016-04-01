@@ -11,7 +11,6 @@ function GM:FootStepsInit()
 end
 
 local footMat = Material( "thieves/footprint" )
--- local CircleMat = Material( "Decals/burn02a" )
 local maxDistance = 600 ^ 2
 local function renderfoot(self)
 	cam.Start3D(EyePos(), EyeAngles())

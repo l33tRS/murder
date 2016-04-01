@@ -2,7 +2,6 @@ if SERVER then
 	AddCSLuaFile()
 else
 	function SWEP:DrawWeaponSelection( x, y, w, h, alpha )
-		-- draw.DrawText("Hands","Default",x + w * 0.44,y + h * 0.20,Color(0,50,200,alpha),1)
 	end
 end
 
@@ -37,7 +36,7 @@ end
 
 function SWEP:CalcViewModelView(vm, opos, oang, pos, ang)
 	
-	// iron sights
+	-- iron sights
 	local pos2 = Vector(-35, 0, 0)
 	addangle(ang, Angle(-90, 0, 0))
 	pos2:Rotate(ang)

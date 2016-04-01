@@ -106,6 +106,12 @@ function GM:DoScoreboardActionPopup(ply)
 		SetClipboardText(ply:SteamID())
 	end
 	
+	local specateThem = actions:AddOption( translate.adminSpectate )
+	specateThem:SetIcon( "icon16/status_online.png" )
+	function specateThem:DoClick()
+		RunConsoleCommand("mu_spectate", ply:EntIndex())
+	end
+	
 	if IsValid(LocalPlayer()) && LocalPlayer():IsAdmin() then
 		actions:AddSpacer()
 
@@ -172,19 +178,11 @@ local function makeTeamList(parent, pteam)
 		if !self.RefreshWait || self.RefreshWait < CurTime() then
 			self.RefreshWait = CurTime() + 0.1
 			doPlayerItems(self, mlist, pteam)
-
-			// update chaos/control
-			if pteam == 2 then
-				-- chaos:SetText("Control: " .. GAMEMODE:GetControl())
-			else
-				-- chaos:SetText("Chaos: " .. GAMEMODE:GetChaos())
-			end
 		end
 	end
 
 	local headp = vgui.Create("DPanel", pnl)
 	headp:DockMargin(0,0,0,4)
-	-- headp:DockPadding(4,0,4,0)
 	headp:Dock(TOP)
 	function headp:Paint() end
 

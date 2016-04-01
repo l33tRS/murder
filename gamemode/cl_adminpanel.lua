@@ -137,16 +137,13 @@ local function makeTeamList(parent, pteam)
 
 			// update chaos/control
 			if pteam == 2 then
-				-- chaos:SetText("Control: " .. GAMEMODE:GetControl())
 			else
-				-- chaos:SetText("Chaos: " .. GAMEMODE:GetChaos())
 			end
 		end
 	end
 
 	local headp = vgui.Create("DPanel", pnl)
 	headp:DockMargin(0,0,0,4)
-	-- headp:DockPadding(4,0,4,0)
 	headp:Dock(TOP)
 	function headp:Paint(w, h)
 		draw.DrawText(translate.scoreboardPing, "ScoreboardPlayer", w - 9, 2, color_black, 2)
@@ -170,11 +167,6 @@ local function makeTeamList(parent, pteam)
 		self:SetTall(h)
 	end
 
-	-- local head = vgui.Create("DLabel", headp)
-	-- head:SetText(team.GetName(pteam))
-	-- head:SetFont("Trebuchet24")
-	-- head:SetTextColor(team.GetColor(pteam))
-	-- head:Dock(FILL)
 
 
 	mlist = vgui.Create("DScrollPanel", pnl)
@@ -196,7 +188,6 @@ net.Receive("mu_adminpanel_details", function (ply, length)
 	local tab = util.JSONToTable(json)
 
 	playerData = tab
-	-- PrintTable(tab)
 end)
 
 

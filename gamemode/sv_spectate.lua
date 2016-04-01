@@ -83,29 +83,6 @@ end
 
 function GM:ChooseSpectatee(ply) 
 
-	-- if ((!ply.SpectateTime || ply.SpectateTime < CurTime()) && ply:KeyPressed(IN_ATTACK))
-	--  || !IsValid(ply:GetCSpectatee()) || (ply:GetCSpectatee():IsPlayer() && !ply:GetCSpectatee():Alive()) then
-
-	-- 	// recalculate spectating
-	-- 	local players = team.GetPlayers(2)
-	-- 	for k,v in pairs(players) do
-	-- 		if !(v:Alive()) then
-	-- 			players[k] = nil
-	-- 		end
-	-- 	end
-
-	-- 	local ent = table.Random(players)
-	-- 	if IsValid(ent) then
-	-- 		ply:CSpectate(OBS_MODE_IN_EYE, ent)
-	-- 	elseif IsValid(ply:IsCSpectating()) then
-	-- 		if ply:GetCSpectating() != ply:GetRagdollEntity() then
-	-- 			ply:CSpectate(OBS_MODE_CHASE, ply:GetRagdollEntity())
-	-- 		end
-	-- 	elseif ply:IsCSpectating() then
-	-- 		ply:CSpectate(OBS_MODE_ROAMING)
-	-- 	end
-	-- end
-
 	if !ply.SpectateTime || ply.SpectateTime < CurTime() then
 
 		local direction 
