@@ -51,7 +51,6 @@ GM.Language = CreateConVar("mu_language", "", bit.bor(FCVAR_NOTIFY), "The langua
 -- replicated
 GM.ShowAdminsOnScoreboard = CreateConVar("mu_scoreboard_show_admins", 1, bit.bor(0), "Should show admins on scoreboard" )
 GM.AdminPanelAllowed = CreateConVar("mu_allow_admin_panel", 1, bit.bor(FCVAR_NOTIFY), "Should allow admins to use mu_admin_panel" )
-GM.ShowSpectateInfo = CreateConVar("mu_show_spectate_info", 1, bit.bor(FCVAR_NOTIFY), "Should show players name and color to spectators" )
 
 function GM:Initialize() 
 	self:LoadSpawns()

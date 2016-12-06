@@ -56,13 +56,8 @@ local function addPlayerItem(self, mlist, ply, pteam)
 			draw.DrawText(ply:Ping(), "ScoreboardPlayer", w - 9, 4, color_black, 2)
 			draw.DrawText(ply:Ping(), "ScoreboardPlayer", w - 10, 3, color_white, 2)
 			
-			if ply:Alive() then
-			draw.DrawText(ply:Nick().." ("..ply:GetBystanderName()..")", "ScoreboardPlayer", s + 11, 3, color_black, 0)
-			draw.DrawText(ply:Nick().." ("..ply:GetBystanderName()..")", "ScoreboardPlayer", s + 10, 2, color_white, 0)
-			else
 			draw.DrawText(ply:Nick(), "ScoreboardPlayer", s + 11, 3, color_black, 0)
 			draw.DrawText(ply:Nick(), "ScoreboardPlayer", s + 10, 2, color_white, 0)
-			end
 			
 			ply:GetPlayerColor()
 

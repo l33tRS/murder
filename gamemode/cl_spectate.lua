@@ -39,9 +39,6 @@ function GM:RenderSpectate()
 		if IsValid(self:GetCSpectatee()) && self:GetCSpectatee():IsPlayer() then
 			local h = draw.GetFontHeight("MersRadial")
 			drawTextShadow(self:GetCSpectatee():GetBystanderName().." ("..self:GetCSpectatee():Nick()..")", "MersRadial", ScrW() / 2, ScrH() / 1.07, Color(190, 190, 190), 1)
-			if self.DrawGameHUD && GAMEMODE.RoundSettings.ShowSpectateInfo then
-				self:DrawGameHUD(self:GetCSpectatee())
-			end
 		end
 	end
 end

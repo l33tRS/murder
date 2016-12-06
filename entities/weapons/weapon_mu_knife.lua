@@ -16,14 +16,12 @@ else
 		surface.SetFont("MersHead1")
 		local twf, thf = surface.GetTextSize(name:sub(1, 1))
 		tw = tw + twf + 1
-		
 	end
 	
 	function SWEP:DrawHUD()
 		if self.ChargeStart then
 			local sw, sh = ScrW(), ScrH()
 			local charge = self:GetCharge()
-
 
 			local w, h = math.Round(ScrW() * 0.2), 40
 			surface.SetDrawColor(0, 0, 0, 180)
@@ -167,7 +165,6 @@ function SWEP:AttackTrace()
 	local tr = util.TraceHull(trace)
 	tr.TraceAimVector = self.Owner:GetAimVector()
 
-	print(CurTime(), trace.start, trace.endpos)
 	// aim around
 	if !IsValid(tr.Entity) then tr = self:GetTrace() end
 	if !IsValid(tr.Entity) then tr = self:GetTrace(10,0) end
@@ -176,7 +173,6 @@ function SWEP:AttackTrace()
 	if !IsValid(tr.Entity) then tr = self:GetTrace(0,-10) end
 	
 	if tr.Hit then
-		-- print(2, CurTime())
 		if IsValid(tr.Entity) then
 			if CLIENT && LocalPlayer() == self.Owner then
 				self:EmitSound("Weapon_Crowbar.Melee_Hit")

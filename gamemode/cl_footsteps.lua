@@ -35,7 +35,6 @@ function GM:DrawFootprints()
 	local errored, retval = pcall(renderfoot, self)
 
 	if ( !errored ) then
-		DebugInfo(4, tostring(retval))
 		ErrorNoHalt( retval )
 	end
 
