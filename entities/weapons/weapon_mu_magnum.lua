@@ -25,7 +25,6 @@ SWEP.Primary.DefaultClip = 0
 SWEP.Primary.Automatic = false
 SWEP.Primary.Sound = "Weapon_357.Single"
 SWEP.Primary.Sequence = "fire"
--- SWEP.Primary.Delay = 0.
 SWEP.Primary.Damage = 200
 SWEP.Primary.Cone = 0
 SWEP.Primary.DryFireSequence = "fireempty"
@@ -33,7 +32,6 @@ SWEP.Primary.DryFireSound = Sound("Weapon_Pistol.Empty")
 SWEP.Primary.Recoil = 9
 SWEP.Primary.InfiniteAmmo = true
 SWEP.Primary.AutoReload = true
-
 
 SWEP.ReloadSequence = "reload"
 SWEP.ReloadSound = Sound("Weapon_357.Reload")
