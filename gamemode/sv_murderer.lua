@@ -34,7 +34,7 @@ function PlayerMeta:GetMurdererRevealed()
 	return self.MurdererRevealed
 end
 
-local NO_KNIFE_TIME = 30
+local NO_KNIFE_TIME = 20
 function GM:MurdererThink()
 	local players = team.GetPlayers(2)
 	local murderer
